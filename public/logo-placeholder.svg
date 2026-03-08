@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">PetMed placeholder logo</title>
+  <desc id="desc">Square logo placeholder with paw icon.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b9ea72" />
+      <stop offset="100%" stop-color="#7fca4a" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#bg)" />
+  <circle cx="20" cy="28" r="5" fill="#0d5c4f" />
+  <circle cx="29" cy="20" r="4" fill="#0d5c4f" />
+  <circle cx="39" cy="20" r="4" fill="#0d5c4f" />
+  <circle cx="47" cy="28" r="5" fill="#0d5c4f" />
+  <path d="M18 39c0-7.6 28-7.6 28 0 0 4.7-5.4 8-9.4 8h-9.2C23.4 47 18 43.7 18 39z" fill="#0d5c4f" />
+</svg>

@@ -1,0 +1,112 @@
+{
+  "en": {
+    "nav": {
+      "howItWorks": "How it works",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "login": "Login"
+    },
+    "mobile": {
+      "home": "Home",
+      "menu": "Menu"
+    },
+    "hero": {
+      "titleLine1": "Diagnostic",
+      "titleLine2": "Clarity",
+      "titleHighlight": "for Pet Health",
+      "subtitle": "AI-Driven Insights For Faster, More Accurate Veterinary Decisions. Your Interactive Clinical Partner."
+    },
+    "buttons": {
+      "requestDemo": "REQUEST DEMO",
+      "seeHowItWorks": "See How It Works"
+    },
+    "card": {
+      "label": "PETMED AI",
+      "question": "I'm seeing a 15-year-old male Red-Eared Slider (Trachemys scripta elegans). Owner noticed swelling on the side of the head, lethargy, and decreased appetite for the past 2 weeks.",
+      "insightsTitle": "Insights:",
+      "insightsBody": "Based on this clinical presentation with unilateral head swelling, lethargy, anorexia, and suboptimal husbandry temperatures, here is the diagnostic reasoning.",
+      "chipSymptoms": "SYMPTOMS ANALYSIS",
+      "chipNextSteps": "RECOMMENDED NEXT STEPS",
+      "signsTitle": "CLINICAL SIGNS INPUT",
+      "symptomOne": "Lethargy",
+      "symptomTwo": "Vomiting",
+      "symptomThree": "Abdominal Pain",
+      "inputPlaceholder": "Describe symptoms, Or Request Diagnostic Guidance.."
+    },
+    "support": {
+      "title": "How We Support Your Decisions",
+      "subtitle": "Veterinary medicine is getting harder. We make the complex simple.",
+      "overload": {
+        "title": "Information Overload",
+        "body": "Sifting through hundreds of pages of medical history takes hours. PetMed summarizes the critical vitals in seconds."
+      },
+      "timeSensitive": {
+        "title": "Time-Sensitive Decisions",
+        "body": "In emergencies, every minute counts. Get rapid diagnostic paths when time isn't on your side."
+      },
+      "uncertainty": {
+        "title": "Diagnostic Uncertainty",
+        "body": "Cross-reference with millions of cases instantly."
+      },
+      "evidence": {
+        "title": "Evidence-Based Insights",
+        "body": "Every suggestion is backed by peer-reviewed literature and current best practices in veterinary oncology, cardiology, and more."
+      }
+    }
+  },
+  "ja": {
+    "nav": {
+      "howItWorks": "使い方",
+      "pricing": "料金",
+      "faq": "よくある質問",
+      "login": "ログイン"
+    },
+    "mobile": {
+      "home": "ホーム",
+      "menu": "メニュー"
+    },
+    "hero": {
+      "titleLine1": "診断の",
+      "titleLine2": "明確さを",
+      "titleHighlight": "ペットの健康へ",
+      "subtitle": "より速く、より正確な獣医判断のためのAIインサイト。対話型の臨床パートナーです。"
+    },
+    "buttons": {
+      "requestDemo": "デモを依頼",
+      "seeHowItWorks": "使い方を見る"
+    },
+    "card": {
+      "label": "PETMED AI",
+      "question": "15歳のオスのミシシッピアカミミガメ（Trachemys scripta elegans）を診ています。飼い主は頭部側面の腫れ、元気消失、食欲低下が2週間続いていると報告しています。",
+      "insightsTitle": "インサイト:",
+      "insightsBody": "片側性の頭部腫脹、活動低下、食欲不振、飼育温度の不十分さという臨床像に基づき、診断推論を示します。",
+      "chipSymptoms": "症状分析",
+      "chipNextSteps": "推奨される次のステップ",
+      "signsTitle": "臨床症状入力",
+      "symptomOne": "元気消失",
+      "symptomTwo": "嘔吐",
+      "symptomThree": "腹痛",
+      "inputPlaceholder": "症状を入力、または診断ガイダンスを依頼..."
+    },
+    "support": {
+      "title": "意思決定をどう支援するか",
+      "subtitle": "獣医医療はより複雑になっています。私たちはその複雑さをシンプルにします。",
+      "overload": {
+        "title": "情報過多",
+        "body": "膨大な病歴を読み解くには時間がかかります。PetMedは重要なバイタル情報を数秒で要約します。"
+      },
+      "timeSensitive": {
+        "title": "時間制約のある判断",
+        "body": "緊急時には1分1秒が重要です。時間がない状況でも迅速な診断経路を提示します。"
+      },
+      "uncertainty": {
+        "title": "診断の不確実性",
+        "body": "数百万件の症例と即時に照合できます。"
+      },
+      "evidence": {
+        "title": "エビデンスに基づく知見",
+        "body": "すべての提案は査読済み文献と、腫瘍学・循環器学などの最新ベストプラクティスに基づいています。"
+      }
+    }
+  }
+}
