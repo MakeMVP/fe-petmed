@@ -1,172 +1,107 @@
-"use client";
+﻿"use client";
 
-import Image from "next/image";
-import { useMemo, useState } from "react";
+import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+
+import { DEMO_SUBMIT_MESSAGES, INITIAL_DEMO_FORM } from "@/constants/home";
 import translations from "@/content/translations.json";
-
-type Locale = "en" | "ja";
+import { submitDemoRequest } from "@/lib/api/demo-request";
+import { validateDemoForm } from "@/lib/validation/demo-form";
+import { ClinicalAreasSection } from "@/components/home/ClinicalAreasSection";
+import { DemoRequestSection } from "@/components/home/DemoRequestSection";
+import { Header } from "@/components/home/Header";
+import { HeroSection } from "@/components/home/HeroSection";
+import { MeetPetMedSection } from "@/components/home/MeetPetMedSection";
+import { PrecisionSection } from "@/components/home/PrecisionSection";
+import { PricingSection } from "@/components/home/PricingSection";
+import { ReviewsSection } from "@/components/home/ReviewsSection";
+import { SiteFooter } from "@/components/home/SiteFooter";
+import { SupportSection } from "@/components/home/SupportSection";
+import type { DemoFormErrors, DemoFormValues, Locale, SubmitState } from "@/types/home";
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("en");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [demoForm, setDemoForm] = useState(INITIAL_DEMO_FORM);
+  const [demoErrors, setDemoErrors] = useState<DemoFormErrors>({});
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [submitMessage, setSubmitMessage] = useState("");
   const t = useMemo(() => translations[locale], [locale]);
+
+  const onDemoFieldChange =
+    (field: keyof DemoFormValues) =>
+    (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const value = event.target.value;
+      setDemoForm((prev) => ({ ...prev, [field]: value }));
+      setDemoErrors((prev) => ({ ...prev, [field]: "" }));
+
+      if (submitState !== "idle") {
+        setSubmitState("idle");
+        setSubmitMessage("");
+      }
+    };
+
+  const handleDemoSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const errors = validateDemoForm(demoForm);
+    setDemoErrors(errors);
+
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
+
+    setSubmitState("loading");
+    setSubmitMessage("");
+
+    try {
+      await submitDemoRequest({
+        firstName: demoForm.firstName.trim(),
+        lastName: demoForm.lastName.trim(),
+        workEmail: demoForm.workEmail.trim(),
+        clinicName: demoForm.clinicName.trim(),
+        role: demoForm.role,
+      });
+
+      setSubmitState("success");
+      setSubmitMessage(DEMO_SUBMIT_MESSAGES.success);
+      setDemoForm(INITIAL_DEMO_FORM);
+    } catch {
+      setSubmitState("error");
+      setSubmitMessage(DEMO_SUBMIT_MESSAGES.error);
+    }
+  };
 
   return (
     <div className="landing">
-      <header className="top-nav">
-        <div className="brand">
-          <Image
-            src="/logo.svg"
-            alt="PetMed logo"
-            width={42}
-            height={42}
-            className="brand-logo"
-          />
-          <span>PetMed</span>
-        </div>
-
-        <nav aria-label="Primary" className="desktop-nav">
-          <a href="#how-it-works">{t.nav.howItWorks}</a>
-          <a href="#pricing">{t.nav.pricing}</a>
-          <a href="#faq">{t.nav.faq}</a>
-          <a href="#login">{t.nav.login}</a>
-        </nav>
-
-        <div className="top-actions">
-          <div className="lang-switch" role="group" aria-label="Language switch">
-            <button
-              type="button"
-              className={locale === "en" ? "active" : ""}
-              onClick={() => setLocale("en")}
-              aria-pressed={locale === "en"}
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              className={locale === "ja" ? "active" : ""}
-              onClick={() => setLocale("ja")}
-              aria-pressed={locale === "ja"}
-            >
-              JP
-            </button>
-          </div>
-
-          <button type="button" className="btn btn-dark">
-            {t.buttons.requestDemo}
-          </button>
-        </div>
-
-        <details className="mobile-breadcrumb">
-          <summary>
-            {t.mobile.home}
-          </summary>
-          <nav aria-label="Mobile menu">
-            <a href="#how-it-works">{t.nav.howItWorks}</a>
-            <a href="#pricing">{t.nav.pricing}</a>
-            <a href="#faq">{t.nav.faq}</a>
-            <a href="#login">{t.nav.login}</a>
-          </nav>
-        </details>
-      </header>
+      <Header
+        locale={locale}
+        mobileMenuOpen={mobileMenuOpen}
+        t={t}
+        onLocaleChange={setLocale}
+        onToggleMobileMenu={() => setMobileMenuOpen((prev) => !prev)}
+        onCloseMobileMenu={() => setMobileMenuOpen(false)}
+      />
 
       <main>
-        <section className="hero-area">
-          <section className="hero-copy">
-            <h1>
-              <span className="muted-line">{t.hero.titleLine1}</span>
-              <span className="muted-line">{t.hero.titleLine2}</span>
-              <span className="highlight-wrap">
-                <span className="highlight">{t.hero.titleHighlight}</span>
-              </span>
-            </h1>
-            <p>{t.hero.subtitle}</p>
-            <div className="hero-cta">
-              <button type="button" className="btn btn-dark">
-                {t.buttons.requestDemo}
-                <span aria-hidden="true">↗</span>
-              </button>
-              <button type="button" className="btn btn-light">
-                {t.buttons.seeHowItWorks}
-              </button>
-            </div>
-          </section>
-
-          <section className="assistant-card" aria-label="PetMed AI preview">
-            <div className="window-top">
-              <div className="dots">
-                <span />
-                <span />
-                <span />
-              </div>
-              <p>{t.card.label}</p>
-            </div>
-            <div className="window-body">
-              <article className="clinical-panel">
-                <h2>{t.card.signsTitle}</h2>
-                <div className="chips">
-                  <span>{t.card.symptomOne}</span>
-                  <span>{t.card.symptomTwo}</span>
-                  <span>{t.card.symptomThree}</span>
-                </div>
-                <div className="prompt-bar">
-                  <span>{t.card.inputPlaceholder}</span>
-                  <div className="prompt-actions" aria-hidden="true">
-                    <span>◔</span>
-                    <span>▷</span>
-                  </div>
-                </div>
-              </article>
-              <div className="sr-only" aria-live="polite">
-                {t.card.insightsTitle} {t.card.insightsBody}
-              </div>
-            </div>
-          </section>
-        </section>
+        <HeroSection t={t} />
         <hr className="section-divider" />
-
-        <section className="support-section" id="how-it-works">
-          <div className="support-heading">
-            <h2>{t.support.title}</h2>
-            <p>{t.support.subtitle}</p>
-          </div>
-
-          <div className="support-grid">
-            <article className="support-card light">
-              <span className="support-icon">☰</span>
-              <h3>{t.support.overload.title}</h3>
-              <p>{t.support.overload.body}</p>
-              <div className="fake-lines">
-                <span />
-                <span />
-                <span />
-              </div>
-            </article>
-
-            <article className="support-card dark">
-              <span className="support-icon">◷</span>
-              <h3>{t.support.timeSensitive.title}</h3>
-              <p>{t.support.timeSensitive.body}</p>
-            </article>
-
-            <article className="support-card lime">
-              <span className="support-icon">✚</span>
-              <div className="image-block" aria-hidden="true" />
-              <h3>{t.support.uncertainty.title}</h3>
-              <p>{t.support.uncertainty.body}</p>
-            </article>
-
-            <article className="support-card gray">
-              <div className="shield-block" aria-hidden="true">
-                🛡
-              </div>
-              <div className="gray-copy">
-                <h3>{t.support.evidence.title}</h3>
-                <p>{t.support.evidence.body}</p>
-              </div>
-            </article>
-          </div>
-        </section>
+        <SupportSection t={t} />
+        <ClinicalAreasSection />
+        <MeetPetMedSection />
+        <ReviewsSection />
+        <PrecisionSection />
+        <PricingSection />
+        <DemoRequestSection
+          values={demoForm}
+          errors={demoErrors}
+          submitState={submitState}
+          submitMessage={submitMessage}
+          onFieldChange={onDemoFieldChange}
+          onSubmit={handleDemoSubmit}
+        />
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
