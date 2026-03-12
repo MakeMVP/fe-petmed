@@ -1,19 +1,32 @@
-﻿import { PRECISION_STEPS } from "@/constants/home";
+import Image from "next/image";
 
-export function PrecisionSection() {
+import { PRECISION_STEPS_META } from "@/constants/home";
+import type { TranslationCopy } from "@/types/home";
+
+type PrecisionSectionProps = {
+  t: TranslationCopy;
+};
+
+export function PrecisionSection({ t }: PrecisionSectionProps) {
   return (
     <section className="precision-section" aria-label="Precision in 3 steps">
-      <h2>Precision in 3 Steps.</h2>
+      <h2>{t.precision.title}</h2>
       <div className="precision-grid">
-        {PRECISION_STEPS.map((step, index) => (
+        {t.precision.steps.map((step, index) => (
           <article
             className={`precision-card ${index === 0 ? "left" : ""} ${index === 2 ? "right" : ""}`.trim()}
-            key={step.number}
+            key={PRECISION_STEPS_META[index]?.number ?? step.title}
           >
             <div className="precision-visual" aria-hidden="true">
-              <span>{step.icon}</span>
+              <Image
+                src={PRECISION_STEPS_META[index]?.icon ?? ""}
+                alt=""
+                width={48}
+                height={48}
+                aria-hidden="true"
+              />
             </div>
-            <span className="precision-number">{step.number}</span>
+            <span className="precision-number">{PRECISION_STEPS_META[index]?.number}</span>
             <h3>{step.title}</h3>
             <p>{step.body}</p>
           </article>

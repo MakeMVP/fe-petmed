@@ -1,46 +1,61 @@
-﻿import { HOSPITAL_PLAN_FEATURES, PRACTICE_PLAN_FEATURES, TRUSTED_LOGOS } from "@/constants/home";
+import Image from "next/image";
 
-export function PricingSection() {
+import { TRUSTED_LOGOS } from "@/constants/home";
+import type { TranslationCopy } from "@/types/home";
+
+type PricingSectionProps = {
+  t: TranslationCopy;
+};
+
+export function PricingSection({ t }: PricingSectionProps) {
   return (
     <section className="pricing-cta-section" id="pricing" aria-label="Pricing and demo">
       <div className="pricing-cta-inner">
-        <h2>Ready to elevate your practice?</h2>
-        <p>Join 2,000+ veterinary hospitals using PetMed to redefine animal care.</p>
+        <h2>{t.pricing.title}</h2>
+        <p>{t.pricing.subtitle}</p>
 
         <div className="pricing-cards">
           <article className="pricing-card practice-plan">
-            <span className="plan-label">Practice Plan</span>
+            <span className="plan-label">{t.pricing.practicePlan.label}</span>
             <p className="plan-price">
-              <strong>¥199</strong>/mo
+              <strong>{t.pricing.practicePlan.price}</strong>
+              {t.pricing.practicePlan.priceSuffix}
             </p>
             <ul>
-              {PRACTICE_PLAN_FEATURES.map((feature) => (
-                <li key={feature}>{feature}</li>
+              {t.pricing.practicePlan.features.map((feature) => (
+                <li key={feature}>
+                  <Image src="/check-1.svg" alt="" width={14} height={14} aria-hidden="true" />
+                  <span>{feature}</span>
+                </li>
               ))}
             </ul>
             <button type="button" className="plan-btn light">
-              Start Free 14-Day Trial
+              {t.pricing.practicePlan.cta}
             </button>
           </article>
 
           <article className="pricing-card hospital-plan">
-            <span className="plan-label">Hospital Network</span>
+            <span className="plan-label">{t.pricing.hospitalPlan.label}</span>
             <p className="plan-price">
-              <strong>Custom</strong>
+              <strong>{t.pricing.hospitalPlan.price}</strong>
+              {t.pricing.hospitalPlan.priceSuffix}
             </p>
             <ul>
-              {HOSPITAL_PLAN_FEATURES.map((feature) => (
-                <li key={feature}>{feature}</li>
+              {t.pricing.hospitalPlan.features.map((feature) => (
+                <li key={feature}>
+                  <Image src="/check-2.svg" alt="" width={14} height={14} aria-hidden="true" />
+                  <span>{feature}</span>
+                </li>
               ))}
             </ul>
             <button type="button" className="plan-btn dark">
-              Book a Demo
+              {t.pricing.hospitalPlan.cta}
             </button>
           </article>
         </div>
 
         <div className="trusted-row" aria-label="Trusted by clinics">
-          <p>Trusted by world-leading clinics</p>
+          <p>{t.pricing.trusted.label}</p>
           <div className="trusted-logos" aria-hidden="true">
             {TRUSTED_LOGOS.map((logo) => (
               <span key={logo}>{logo}</span>

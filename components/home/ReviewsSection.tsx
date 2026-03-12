@@ -1,4 +1,9 @@
-﻿import { REVIEW_COLUMNS } from "@/constants/home";
+import { REVIEW_COLUMN_INDEXES } from "@/constants/home";
+import type { TranslationCopy } from "@/types/home";
+
+type ReviewsSectionProps = {
+  t: TranslationCopy;
+};
 
 function renderReviewBody(body: string) {
   return body.split(/(@petmed)/gi).map((part, index) =>
@@ -12,33 +17,37 @@ function renderReviewBody(body: string) {
   );
 }
 
-export function ReviewsSection() {
+export function ReviewsSection({ t }: ReviewsSectionProps) {
   return (
     <section className="reviews-section" aria-label="Trusted in practice">
-      <h2>Trusted in Practice</h2>
-      <p>
-        Real experiences from veterinarians and independent doctors integrate PetMed AI into everyday cases.
-      </p>
+      <h2>{t.reviews.title}</h2>
+      <p>{t.reviews.subtitle}</p>
 
       <div className="reviews-columns-wrap">
         <div className="reviews-columns-track">
-          {[...REVIEW_COLUMNS, ...REVIEW_COLUMNS].map((column, columnIndex) => (
+          {[...REVIEW_COLUMN_INDEXES, ...REVIEW_COLUMN_INDEXES].map((column, columnIndex) => (
             <div className="review-column" key={`column-${columnIndex}`}>
-              {column.map((review, cardIndex) => (
-                <article className="review-card" key={`${review.name}-${columnIndex}-${cardIndex}`}>
-                  <div className="review-top">
-                    <span className="avatar" aria-hidden="true" />
-                    <div>
-                      <h3>{review.name}</h3>
-                      <span>{review.handle}</span>
+              {column.map((reviewIndex, cardIndex) => {
+                const review = t.reviews.cards[reviewIndex];
+                return (
+                  <article
+                    className={`review-card${cardIndex === 1 ? " tilt-cw" : ""}`}
+                    key={`${review.name}-${columnIndex}-${reviewIndex}`}
+                  >
+                    <div className="review-top">
+                      <span className="avatar" aria-hidden="true" />
+                      <div>
+                        <h3>{review.name}</h3>
+                        <span>{review.handle}</span>
+                      </div>
+                      <span className="review-bird" aria-hidden="true">
+                        𝕏
+                      </span>
                     </div>
-                    <span className="review-bird" aria-hidden="true">
-                      𝕏
-                    </span>
-                  </div>
-                  <p>{renderReviewBody(review.body)}</p>
-                </article>
-              ))}
+                    <p>{renderReviewBody(review.body)}</p>
+                  </article>
+                );
+              })}
             </div>
           ))}
         </div>

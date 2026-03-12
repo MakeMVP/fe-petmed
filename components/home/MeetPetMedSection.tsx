@@ -1,23 +1,37 @@
-﻿import { CONCERN_CARDS, MEET_BENEFITS } from "@/constants/home";
+import Image from "next/image";
 
-export function MeetPetMedSection() {
+import { CONCERN_ICONS } from "@/constants/home";
+import type { TranslationCopy } from "@/types/home";
+
+type MeetPetMedSectionProps = {
+  t: TranslationCopy;
+};
+
+export function MeetPetMedSection({ t }: MeetPetMedSectionProps) {
   return (
     <section className="meet-petmed" aria-label="Meet PetMed">
       <div className="meet-petmed-inner">
-        <h2>Meet PetMed.</h2>
-        <p className="meet-subtitle">Enhanced intuition with real-time data processing.</p>
+        <h2>{t.meet.title}</h2>
+        <p className="meet-subtitle">{t.meet.subtitle}</p>
 
         <ul className="meet-benefits" aria-label="Platform benefits">
-          {MEET_BENEFITS.map((benefit) => (
+          {t.meet.benefits.map((benefit) => (
             <li key={benefit}>{benefit}</li>
           ))}
         </ul>
 
         <div className="concerns-grid">
-          {CONCERN_CARDS.map((concern) => (
+          {t.meet.concerns.map((concern, index) => (
             <article className="concern-card" key={concern.title}>
               <h3>
-                <span aria-hidden="true">{concern.icon}</span>
+                <span aria-hidden="true">
+                  <Image
+                    src={CONCERN_ICONS[index % CONCERN_ICONS.length]}
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                </span>
                 {concern.title}
               </h3>
               <p>{concern.body}</p>
@@ -26,7 +40,7 @@ export function MeetPetMedSection() {
         </div>
 
         <button type="button" className="meet-cta">
-          Explore the Platform
+          {t.meet.cta}
         </button>
       </div>
     </section>

@@ -1,13 +1,13 @@
-﻿import type { ChangeEvent, FormEvent } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 
-import { DEMO_ROLE_OPTIONS } from "@/constants/home";
-import type { DemoFormErrors, DemoFormValues, SubmitState } from "@/types/home";
+import type { DemoFormErrors, DemoFormValues, SubmitState, TranslationCopy } from "@/types/home";
 
 type DemoRequestSectionProps = {
   values: DemoFormValues;
   errors: DemoFormErrors;
   submitState: SubmitState;
   submitMessage: string;
+  t: TranslationCopy;
   onFieldChange: (field: keyof DemoFormValues) => (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 };
@@ -17,22 +17,23 @@ export function DemoRequestSection({
   errors,
   submitState,
   submitMessage,
+  t,
   onFieldChange,
   onSubmit,
 }: DemoRequestSectionProps) {
   return (
     <section className="demo-request-section" id="faq" aria-label="Request a platform demo">
-      <h2>Request a Platform Demo</h2>
-      <p>See how PetMed AI can transform your clinic&apos;s diagnostic workflow.</p>
+      <h2>{t.demo.title}</h2>
+      <p>{t.demo.subtitle}</p>
 
       <form className="demo-form" noValidate onSubmit={onSubmit}>
         <div className="demo-field">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="firstName">{t.demo.fields.firstName.label}</label>
           <input
             id="firstName"
             name="firstName"
             type="text"
-            placeholder="Dr. Jane"
+            placeholder={t.demo.fields.firstName.placeholder}
             value={values.firstName}
             onChange={onFieldChange("firstName")}
             aria-invalid={Boolean(errors.firstName)}
@@ -41,12 +42,12 @@ export function DemoRequestSection({
         </div>
 
         <div className="demo-field">
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="lastName">{t.demo.fields.lastName.label}</label>
           <input
             id="lastName"
             name="lastName"
             type="text"
-            placeholder="Doe"
+            placeholder={t.demo.fields.lastName.placeholder}
             value={values.lastName}
             onChange={onFieldChange("lastName")}
             aria-invalid={Boolean(errors.lastName)}
@@ -55,12 +56,12 @@ export function DemoRequestSection({
         </div>
 
         <div className="demo-field">
-          <label htmlFor="workEmail">Work Email</label>
+          <label htmlFor="workEmail">{t.demo.fields.workEmail.label}</label>
           <input
             id="workEmail"
             name="workEmail"
             type="email"
-            placeholder="doctor@clinic.com"
+            placeholder={t.demo.fields.workEmail.placeholder}
             value={values.workEmail}
             onChange={onFieldChange("workEmail")}
             aria-invalid={Boolean(errors.workEmail)}
@@ -69,12 +70,12 @@ export function DemoRequestSection({
         </div>
 
         <div className="demo-field">
-          <label htmlFor="clinicName">Clinic / Hospital Name</label>
+          <label htmlFor="clinicName">{t.demo.fields.clinicName.label}</label>
           <input
             id="clinicName"
             name="clinicName"
             type="text"
-            placeholder="Apex Veterinary Center"
+            placeholder={t.demo.fields.clinicName.placeholder}
             value={values.clinicName}
             onChange={onFieldChange("clinicName")}
             aria-invalid={Boolean(errors.clinicName)}
@@ -83,7 +84,7 @@ export function DemoRequestSection({
         </div>
 
         <div className="demo-field demo-role-field">
-          <label htmlFor="role">Professional Role</label>
+          <label htmlFor="role">{t.demo.fields.role.label}</label>
           <select
             id="role"
             name="role"
@@ -91,8 +92,8 @@ export function DemoRequestSection({
             onChange={onFieldChange("role")}
             aria-invalid={Boolean(errors.role)}
           >
-            <option value="">Select role</option>
-            {DEMO_ROLE_OPTIONS.map((roleOption) => (
+            <option value="">{t.demo.fields.role.placeholder}</option>
+            {t.demo.fields.role.options.map((roleOption) => (
               <option key={roleOption} value={roleOption}>
                 {roleOption}
               </option>
@@ -102,7 +103,7 @@ export function DemoRequestSection({
         </div>
 
         <button className="demo-submit-btn" type="submit" disabled={submitState === "loading"}>
-          {submitState === "loading" ? "Submitting..." : "Submit Demo Request"}
+          {submitState === "loading" ? t.demo.submit.loading : t.demo.submit.idle}
         </button>
 
         {submitMessage ? (

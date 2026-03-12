@@ -52,6 +52,268 @@
         "title": "Evidence-Based Insights",
         "body": "Every suggestion is backed by peer-reviewed literature and current best practices in veterinary oncology, cardiology, and more."
       }
+    },
+    "clinicalAreas": {
+      "title": "Covering Comprehensive Clinical Areas",
+      "cards": [
+        {
+          "title": "Internal Medicine",
+          "body": "Comprehensive support for diagnosis and treatment management of general internal medicine diseases."
+        },
+        {
+          "title": "Surgery / Emergency",
+          "body": "Criteria for initial evaluation and surgical intervention in emergency cases."
+        },
+        {
+          "title": "Cardiology",
+          "body": "Diagnosis, staging, and treatment protocols for cardiac diseases."
+        },
+        {
+          "title": "Gastroenterology",
+          "body": "Differential diagnosis of digestive diseases and interpretation of endoscopic findings."
+        },
+        {
+          "title": "Pulmonology",
+          "body": "Image diagnosis and treatment options for respiratory diseases."
+        },
+        {
+          "title": "Neurology",
+          "body": "Interpretation of neurological examinations and diagnostic support for neurological diseases."
+        }
+      ]
+    },
+    "meet": {
+      "title": "Meet PetMed.",
+      "subtitle": "Enhanced intuition with real-time data processing.",
+      "benefits": [
+        "Instant Analysis Of Bloodwork & Imaging",
+        "Context-Aware Differential Diagnoses",
+        "Seamless EMR Integration"
+      ],
+      "concerns": [
+        {
+          "title": "Difficulty in Emergency Judgment",
+          "body": "\"My pet might have ingested something... I'm unsure whether I should take them to the hospital immediately.\""
+        },
+        {
+          "title": "Anxiety About Subtle Symptoms",
+          "body": "\"My pet is favoring or dragging a leg but doesn't seem to be in pain... Should I go to the hospital?\""
+        },
+        {
+          "title": "Training and Behavioral Questions",
+          "body": "\"House training isn't going well... I want to know how to make it successful.\""
+        },
+        {
+          "title": "Diet and Health Management Concerns",
+          "body": "\"Diarrhea has continued after changing food... Could it be that the new food doesn't suit my pet?\""
+        }
+      ],
+      "cta": "Explore the Platform"
+    },
+    "reviews": {
+      "title": "Trusted in Practice",
+      "subtitle": "Real experiences from veterinarians and independent doctors integrate PetMed AI into everyday cases.",
+      "cards": [
+        {
+          "name": "Tom Critchlow",
+          "handle": "@AMCNY",
+          "body": "The ability to quickly explore differential diagnoses and literature insights saves our team valuable time."
+        },
+        {
+          "name": "VCA Animal Hospitals",
+          "handle": "@Angellpets",
+          "body": "✨ @petmed really is so useful and intuitive."
+        },
+        {
+          "name": "Dr. Jan Pol",
+          "handle": "@thedrpol",
+          "body": "✨ @petmed tools look like PetMed are becoming essential in modern veterinary medicine."
+        },
+        {
+          "name": "Dan Rowden",
+          "handle": "@dr",
+          "body": "Wow @petmed is good ⚡"
+        },
+        {
+          "name": "Dr. Lauren Thielen",
+          "handle": "@dr.laurenthielen",
+          "body": "Exotic animal medicine often requires quick research across multiple conditions."
+        },
+        {
+          "name": "BluePearl Hospitals",
+          "handle": "@bluepearlvet",
+          "body": "@petmed helps our teams align quickly so they can focus on care."
+        }
+      ]
+    },
+    "precision": {
+      "title": "Precision in 3 Steps.",
+      "steps": [
+        {
+          "title": "Sync Patient Data",
+          "body": "Connect your existing EMR. PetMed instantly ingests histories, labs, and imaging notes."
+        },
+        {
+          "title": "AI Reasoning",
+          "body": "Our clinical engine maps findings against thousands of validated case studies and protocols."
+        },
+        {
+          "title": "Confirm & Act",
+          "body": "Receive a structured report with weighted options, ready for your final clinical judgment."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Ready to elevate your practice?",
+      "subtitle": "Join 2,000+ veterinary hospitals using PetMed to redefine animal care.",
+      "practicePlan": {
+        "label": "Practice Plan",
+        "price": "¥199",
+        "priceSuffix": "/mo",
+        "features": [
+          "Unlimited AI consults",
+          "Imaging & Lab analysis",
+          "3 User seats included"
+        ],
+        "cta": "Start Free 14-Day Trial"
+      },
+      "hospitalPlan": {
+        "label": "Hospital Network",
+        "price": "Custom",
+        "priceSuffix": "",
+        "features": [
+          "Enterprise-grade EMR sync",
+          "Custom training models",
+          "Dedicated success manager"
+        ],
+        "cta": "Book a Demo"
+      },
+      "trusted": {
+        "label": "Trusted by world-leading clinics"
+      }
+    },
+    "demo": {
+      "title": "Request a Platform Demo",
+      "subtitle": "See how PetMed AI can transform your clinic's diagnostic workflow.",
+      "fields": {
+        "firstName": {
+          "label": "First Name",
+          "placeholder": "Dr. Jane"
+        },
+        "lastName": {
+          "label": "Last Name",
+          "placeholder": "Doe"
+        },
+        "workEmail": {
+          "label": "Work Email",
+          "placeholder": "doctor@clinic.com"
+        },
+        "clinicName": {
+          "label": "Clinic / Hospital Name",
+          "placeholder": "Apex Veterinary Center"
+        },
+        "role": {
+          "label": "Professional Role",
+          "placeholder": "Select role",
+          "options": [
+            "Clinic Owner / Medical Director",
+            "Veterinarian",
+            "Practice Manager",
+            "Technician / Nurse",
+            "others"
+          ]
+        }
+      },
+      "submit": {
+        "idle": "Submit Demo Request",
+        "loading": "Submitting..."
+      },
+      "messages": {
+        "success": "Demo request submitted successfully.",
+        "error": "Unable to submit right now. Please try again."
+      },
+      "validation": {
+        "firstName": "Enter a valid first name (2-40 letters).",
+        "lastName": "Enter a valid last name (2-40 letters).",
+        "workEmail": "Enter a valid work email address.",
+        "clinicName": "Clinic/Hospital name must be 2-80 characters.",
+        "role": "Please select your professional role."
+      }
+    },
+    "footer": {
+      "tagline": "Advanced clinical decision support for modern veterinary professionals.",
+      "columns": {
+        "platform": "Platform",
+        "company": "Company",
+        "legal": "Legal"
+      },
+      "links": {
+        "platform": [
+          {
+            "href": "#diagnostic-simulator",
+            "label": "Diagnostic Simulator"
+          },
+          {
+            "href": "#treatment-guidelines",
+            "label": "Treatment Guidelines"
+          },
+          {
+            "href": "#api-integration",
+            "label": "API Integration"
+          }
+        ],
+        "company": [
+          {
+            "href": "#about-us",
+            "label": "About Us"
+          },
+          {
+            "href": "#clinical-validation",
+            "label": "Clinical Validation"
+          },
+          {
+            "href": "#careers",
+            "label": "Careers"
+          }
+        ],
+        "legal": [
+          {
+            "href": "#privacy-policy",
+            "label": "Privacy Policy"
+          },
+          {
+            "href": "#terms-of-service",
+            "label": "Terms of Service"
+          },
+          {
+            "href": "#medical-disclaimer",
+            "label": "Medical Disclaimer"
+          }
+        ]
+      },
+      "social": [
+        {
+          "href": "#twitter",
+          "label": "𝕏 Twitter",
+          "ariaLabel": "Twitter"
+        },
+        {
+          "href": "#youtube",
+          "label": "YouTube",
+          "ariaLabel": "YouTube"
+        },
+        {
+          "href": "#instagram",
+          "label": "Instagram",
+          "ariaLabel": "Instagram"
+        },
+        {
+          "href": "#facebook",
+          "label": "Facebook",
+          "ariaLabel": "Facebook"
+        }
+      ],
+      "copyright": "© 2026 PetMed AI, Inc. All rights reserved. Designed for veterinary professionals."
     }
   },
   "ja": {
@@ -107,6 +369,268 @@
         "title": "エビデンスに基づく知見",
         "body": "すべての提案は査読済み文献と、腫瘍学・循環器学などの最新ベストプラクティスに基づいています。"
       }
+    },
+    "clinicalAreas": {
+      "title": "幅広い臨床領域をカバー",
+      "cards": [
+        {
+          "title": "内科",
+          "body": "一般内科疾患の診断と治療方針の管理を包括的に支援します。"
+        },
+        {
+          "title": "外科 / 救急",
+          "body": "救急症例の初期評価と外科的介入の判断基準を提示します。"
+        },
+        {
+          "title": "循環器",
+          "body": "心疾患の診断、ステージング、治療プロトコルをサポートします。"
+        },
+        {
+          "title": "消化器",
+          "body": "消化器疾患の鑑別診断と内視鏡所見の解釈を支援します。"
+        },
+        {
+          "title": "呼吸器",
+          "body": "呼吸器疾患の画像診断と治療選択肢を提案します。"
+        },
+        {
+          "title": "神経科",
+          "body": "神経学的検査の解釈と診断支援を行います。"
+        }
+      ]
+    },
+    "meet": {
+      "title": "PetMedとは。",
+      "subtitle": "リアルタイムのデータ処理で、直感を強化します。",
+      "benefits": [
+        "血液検査・画像検査を即時解析",
+        "文脈を踏まえた鑑別診断",
+        "EMRとシームレスに連携"
+      ],
+      "concerns": [
+        {
+          "title": "救急時の判断が難しい",
+          "body": "「誤食したかもしれない…すぐ病院へ行くべきか迷っています。」"
+        },
+        {
+          "title": "微細な症状への不安",
+          "body": "「足を引きずるけど痛がっていない…受診すべき？」"
+        },
+        {
+          "title": "しつけ・行動の相談",
+          "body": "「トイレトレーニングがうまくいかない…成功させたい。」"
+        },
+        {
+          "title": "食事と健康管理の悩み",
+          "body": "「フードを変えてから下痢が続く…合っていないのかも。」"
+        }
+      ],
+      "cta": "プラットフォームを見る"
+    },
+    "reviews": {
+      "title": "現場で信頼される",
+      "subtitle": "獣医師や独立系ドクターの声が、日々の診療にPetMed AIを組み込んでいます。",
+      "cards": [
+        {
+          "name": "Tom Critchlow",
+          "handle": "@AMCNY",
+          "body": "鑑別診断と文献の洞察を素早く整理できるので、チームの時間を大きく節約できます。"
+        },
+        {
+          "name": "VCA Animal Hospitals",
+          "handle": "@Angellpets",
+          "body": "✨ @petmed は本当に使いやすく直感的です。"
+        },
+        {
+          "name": "Dr. Jan Pol",
+          "handle": "@thedrpol",
+          "body": "✨ @petmed のようなツールは、現代の獣医医療に不可欠になりつつあります。"
+        },
+        {
+          "name": "Dan Rowden",
+          "handle": "@dr",
+          "body": "Wow @petmed is good ⚡"
+        },
+        {
+          "name": "Dr. Lauren Thielen",
+          "handle": "@dr.laurenthielen",
+          "body": "エキゾチック動物の診療では、複数疾患の迅速なリサーチが必要です。"
+        },
+        {
+          "name": "BluePearl Hospitals",
+          "handle": "@bluepearlvet",
+          "body": "@petmed がチームの認識合わせを素早く行い、ケアに集中できます。"
+        }
+      ]
+    },
+    "precision": {
+      "title": "3つのステップで高精度。",
+      "steps": [
+        {
+          "title": "患者データを同期",
+          "body": "既存のEMRに接続し、病歴・検査・画像メモを即時に取り込みます。"
+        },
+        {
+          "title": "AI推論",
+          "body": "数千件の検証済み症例とプロトコルに照合して判断を支援します。"
+        },
+        {
+          "title": "確認して実行",
+          "body": "重み付けされた選択肢を含むレポートを受け取り、最終判断を下せます。"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "診療を次のレベルへ",
+      "subtitle": "2,000以上の動物病院がPetMedでケアを再定義しています。",
+      "practicePlan": {
+        "label": "クリニックプラン",
+        "price": "¥199",
+        "priceSuffix": "/月",
+        "features": [
+          "AIコンサルト無制限",
+          "画像・検査の解析",
+          "ユーザー3名まで含む"
+        ],
+        "cta": "14日間無料で試す"
+      },
+      "hospitalPlan": {
+        "label": "病院ネットワーク",
+        "price": "カスタム",
+        "priceSuffix": "",
+        "features": [
+          "エンタープライズEMR同期",
+          "カスタム学習モデル",
+          "専任サクセスマネージャー"
+        ],
+        "cta": "デモを予約"
+      },
+      "trusted": {
+        "label": "世界有数のクリニックで採用"
+      }
+    },
+    "demo": {
+      "title": "プラットフォームのデモを依頼",
+      "subtitle": "PetMed AIが貴院の診断ワークフローをどう変えるかをご覧ください。",
+      "fields": {
+        "firstName": {
+          "label": "名",
+          "placeholder": "山田"
+        },
+        "lastName": {
+          "label": "姓",
+          "placeholder": "花子"
+        },
+        "workEmail": {
+          "label": "勤務先メール",
+          "placeholder": "doctor@clinic.com"
+        },
+        "clinicName": {
+          "label": "病院 / クリニック名",
+          "placeholder": "Apex Veterinary Center"
+        },
+        "role": {
+          "label": "職種",
+          "placeholder": "役割を選択",
+          "options": [
+            "院長 / 医療ディレクター",
+            "獣医師",
+            "マネージャー",
+            "技術者 / 看護師",
+            "others"
+          ]
+        }
+      },
+      "submit": {
+        "idle": "デモを送信",
+        "loading": "送信中..."
+      },
+      "messages": {
+        "success": "デモの依頼を送信しました。",
+        "error": "現在送信できません。もう一度お試しください。"
+      },
+      "validation": {
+        "firstName": "名を2〜40文字で入力してください。",
+        "lastName": "姓を2〜40文字で入力してください。",
+        "workEmail": "有効なメールアドレスを入力してください。",
+        "clinicName": "病院名は2〜80文字で入力してください。",
+        "role": "職種を選択してください。"
+      }
+    },
+    "footer": {
+      "tagline": "現代の獣医療のための臨床意思決定支援。",
+      "columns": {
+        "platform": "プラットフォーム",
+        "company": "会社情報",
+        "legal": "法務"
+      },
+      "links": {
+        "platform": [
+          {
+            "href": "#diagnostic-simulator",
+            "label": "診断シミュレーター"
+          },
+          {
+            "href": "#treatment-guidelines",
+            "label": "治療ガイドライン"
+          },
+          {
+            "href": "#api-integration",
+            "label": "API連携"
+          }
+        ],
+        "company": [
+          {
+            "href": "#about-us",
+            "label": "会社概要"
+          },
+          {
+            "href": "#clinical-validation",
+            "label": "臨床検証"
+          },
+          {
+            "href": "#careers",
+            "label": "採用情報"
+          }
+        ],
+        "legal": [
+          {
+            "href": "#privacy-policy",
+            "label": "プライバシーポリシー"
+          },
+          {
+            "href": "#terms-of-service",
+            "label": "利用規約"
+          },
+          {
+            "href": "#medical-disclaimer",
+            "label": "医療免責事項"
+          }
+        ]
+      },
+      "social": [
+        {
+          "href": "#twitter",
+          "label": "𝕏 Twitter",
+          "ariaLabel": "Twitter"
+        },
+        {
+          "href": "#youtube",
+          "label": "YouTube",
+          "ariaLabel": "YouTube"
+        },
+        {
+          "href": "#instagram",
+          "label": "Instagram",
+          "ariaLabel": "Instagram"
+        },
+        {
+          "href": "#facebook",
+          "label": "Facebook",
+          "ariaLabel": "Facebook"
+        }
+      ],
+      "copyright": "© 2026 PetMed AI, Inc. All rights reserved. Designed for veterinary professionals."
     }
   }
 }

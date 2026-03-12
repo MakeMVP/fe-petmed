@@ -16,9 +16,28 @@ export function SupportSection({ t }: SupportSectionProps) {
 
       <div className="support-grid">
         <article className="support-card light">
-          <span className="support-icon">☰</span>
+          
+          <Image
+            src="/Info-overload.svg"
+            alt=""
+            width={30}
+            height={30}
+            aria-hidden="true"
+            className="support-icon-img"
+          />
           <h3>{t.support.overload.title}</h3>
-          <p>{t.support.overload.body}</p>
+          <p>
+            {t.support.overload.body.split("PetMed").map((part, index, all) =>
+              index < all.length - 1 ? (
+                <span key={`${index}-${part}`}>
+                  {part}
+                  <span className="petmed-accent">PetMed</span>
+                </span>
+              ) : (
+                part
+              ),
+            )}
+          </p>
           <div className="fake-lines">
             <span />
             <span />
@@ -27,13 +46,27 @@ export function SupportSection({ t }: SupportSectionProps) {
         </article>
 
         <article className="support-card dark">
-          <span className="support-icon">◷</span>
+          <Image
+            src="/watch-icon.svg"
+            alt=""
+            width={30}
+            height={30}
+            aria-hidden="true"
+            className="support-icon-img"
+          />
           <h3>{t.support.timeSensitive.title}</h3>
           <p>{t.support.timeSensitive.body}</p>
         </article>
 
         <article className="support-card lime">
-          <span className="support-icon">✚</span>
+          <Image
+            src="/Container.svg"
+            alt=""
+            width={30}
+            height={30}
+            aria-hidden="true"
+            className="support-icon-img"
+          />
           <div className="image-block diagnosis-image" aria-hidden="true">
             <Image
               src="/diagonosis.svg"
@@ -48,7 +81,7 @@ export function SupportSection({ t }: SupportSectionProps) {
 
         <article className="support-card gray">
           <div className="shield-block" aria-hidden="true">
-            🛡
+            <Image src="/Shield.svg" alt="" width={50} height={50} aria-hidden="true" />
           </div>
           <div className="gray-copy">
             <h3>{t.support.evidence.title}</h3>

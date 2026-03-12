@@ -2,7 +2,7 @@
 
 import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 
-import { DEMO_SUBMIT_MESSAGES, INITIAL_DEMO_FORM } from "@/constants/home";
+import { INITIAL_DEMO_FORM } from "@/constants/home";
 import translations from "@/content/translations.json";
 import { submitDemoRequest } from "@/lib/api/demo-request";
 import { validateDemoForm } from "@/lib/validation/demo-form";
@@ -43,7 +43,7 @@ export default function Home() {
   const handleDemoSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const errors = validateDemoForm(demoForm);
+    const errors = validateDemoForm(demoForm, t.demo.validation);
     setDemoErrors(errors);
 
     if (Object.keys(errors).length > 0) {
@@ -63,11 +63,11 @@ export default function Home() {
       });
 
       setSubmitState("success");
-      setSubmitMessage(DEMO_SUBMIT_MESSAGES.success);
+      setSubmitMessage(t.demo.messages.success);
       setDemoForm(INITIAL_DEMO_FORM);
     } catch {
       setSubmitState("error");
-      setSubmitMessage(DEMO_SUBMIT_MESSAGES.error);
+      setSubmitMessage(t.demo.messages.error);
     }
   };
 
@@ -86,22 +86,23 @@ export default function Home() {
         <HeroSection t={t} />
         <hr className="section-divider" />
         <SupportSection t={t} />
-        <ClinicalAreasSection />
-        <MeetPetMedSection />
-        <ReviewsSection />
-        <PrecisionSection />
-        <PricingSection />
+        <ClinicalAreasSection t={t} />
+        <MeetPetMedSection t={t} />
+        <ReviewsSection t={t} />
+        <PrecisionSection t={t} />
+        <PricingSection t={t} />
         <DemoRequestSection
           values={demoForm}
           errors={demoErrors}
           submitState={submitState}
           submitMessage={submitMessage}
+          t={t}
           onFieldChange={onDemoFieldChange}
           onSubmit={handleDemoSubmit}
         />
       </main>
 
-      <SiteFooter />
+      <SiteFooter t={t} />
     </div>
   );
 }

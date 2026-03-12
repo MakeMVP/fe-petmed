@@ -1,5 +1,7 @@
 ﻿import type { TranslationCopy } from "@/types/home";
 
+import Image from "next/image";
+
 type HeroSectionProps = {
   t: TranslationCopy;
 };
@@ -19,7 +21,7 @@ export function HeroSection({ t }: HeroSectionProps) {
         <div className="hero-cta">
           <button type="button" className="btn btn-dark">
             {t.buttons.requestDemo}
-            <span aria-hidden="true">↗</span>
+            <Image src="/Vector.svg" alt="" width={16} height={16} aria-hidden="true" />
           </button>
           <button type="button" className="btn btn-light">
             {t.buttons.seeHowItWorks}
@@ -47,8 +49,8 @@ export function HeroSection({ t }: HeroSectionProps) {
             <div className="prompt-bar">
               <span>{t.card.inputPlaceholder}</span>
               <div className="prompt-actions" aria-hidden="true">
-                <span>◔</span>
-                <span>▷</span>
+                <span><Image src="/Mic.svg" alt="" width={16} height={16} aria-hidden="true" /></span>
+                <span><Image src="/Go.svg" alt="" width={16} height={16} aria-hidden="true" /></span>
               </div>
             </div>
           </article>
