@@ -4,7 +4,7 @@ export const NAV_LINKS = [
   { href: "#how-it-works", labelKey: "howItWorks" },
   { href: "#pricing", labelKey: "pricing" },
   { href: "#faq", labelKey: "faq" },
-  { href: "#login", labelKey: "login" },
+  { href: "/login", labelKey: "login" },
 ] as const;
 
 export const CLINICAL_AREA_ICONS = [

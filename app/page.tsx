@@ -1,10 +1,10 @@
 ﻿"use client";
 
-import { ChangeEvent, FormEvent, useMemo, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import { INITIAL_DEMO_FORM } from "@/constants/home";
-import translations from "@/content/translations.json";
 import { submitDemoRequest } from "@/lib/api/demo-request";
+import { useLocale } from "@/lib/i18n";
 import { validateDemoForm } from "@/lib/validation/demo-form";
 import { ClinicalAreasSection } from "@/components/home/ClinicalAreasSection";
 import { DemoRequestSection } from "@/components/home/DemoRequestSection";
@@ -19,13 +19,12 @@ import { SupportSection } from "@/components/home/SupportSection";
 import type { DemoFormErrors, DemoFormValues, Locale, SubmitState } from "@/types/home";
 
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const { locale, setLocale, t } = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [demoForm, setDemoForm] = useState(INITIAL_DEMO_FORM);
   const [demoErrors, setDemoErrors] = useState<DemoFormErrors>({});
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [submitMessage, setSubmitMessage] = useState("");
-  const t = useMemo(() => translations[locale], [locale]);
 
   const onDemoFieldChange =
     (field: keyof DemoFormValues) =>

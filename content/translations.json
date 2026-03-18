@@ -314,6 +314,97 @@
         }
       ],
       "copyright": "© 2026 PetMed AI, Inc. All rights reserved. Designed for veterinary professionals."
+    },
+    "assistant": {
+      "nav": {
+        "chatAssistant": "Chat Assistant",
+        "medicalReferences": "Medical References"
+      },
+      "actions": {
+        "newConsultation": "+ New Consultation",
+        "openSidebar": "Open sidebar",
+        "closeSidebar": "Close sidebar",
+        "goHome": "Go to home",
+        "uploadFile": "Upload file",
+        "startDictation": "Start dictation",
+        "stopDictation": "Stop dictation",
+        "send": "Send",
+        "remove": "Remove",
+        "settings": "Settings",
+        "more": "More",
+        "languageToggle": "Language toggle",
+        "fileLabel": "File:"
+      },
+      "history": {
+        "today": "Today",
+        "previous7Days": "Previous 7 Days",
+        "earlier": "Earlier"
+      },
+      "plan": {
+        "title": "Pro Plan",
+        "copy": "Unlimited AI diagnostics and specialist referrals.",
+        "upgrade": "Upgrade"
+      },
+      "header": {
+        "title": "AI Veterinary Assistant",
+        "activeNow": "Active Now",
+        "composing": "Composing"
+      },
+      "empty": {
+        "title": "Start a new consultation",
+        "copy": "Ask the PetMed assistant about symptoms, diagnostics, or treatment options."
+      },
+      "input": {
+        "placeholder": "Ask a follow-up or describe new symptoms..."
+      },
+      "disclaimer": "PetMed AI can make mistakes. Always verify clinical reasoning with standard protocols.",
+      "sharedAttachments": "Shared attachments.",
+      "newConversationTitle": "New Conversation"
+    },
+    "auth": {
+      "common": {
+        "home": "Home",
+        "signup": "Sign up",
+        "login": "Login",
+        "languageToggle": "Language toggle"
+      },
+      "login": {
+        "eyebrow": "Secure Access",
+        "title": "Login",
+        "subtitle": "Use your professional email to receive a one-time passcode.",
+        "emailLabel": "Professional Email",
+        "emailPlaceholder": "dr.name@clinic.com",
+        "otpLabel": "One-time Passcode",
+        "otpPlaceholder": "Enter 6-digit code",
+        "back": "Back",
+        "sendOtp": "Send OTP",
+        "verify": "Verify & Login",
+        "didntGetCode": "Didn't get the code?",
+        "resend": "Resend OTP",
+        "sentCode": "We sent a one-time code to {email}.",
+        "resent": "New code sent to {email}.",
+        "verified": "OTP verified. Redirecting...",
+        "fallbackEmail": "your email"
+      },
+      "signup": {
+        "eyebrow": "New to PetMed?",
+        "title": "Create your account",
+        "subtitle": "Verify your professional credentials to activate a clinic profile.",
+        "fullNameLabel": "Full name",
+        "fullNamePlaceholder": "Dr. Jane Doe",
+        "clinicNameLabel": "Clinic name",
+        "clinicNamePlaceholder": "Central Pet Clinic",
+        "emailLabel": "Professional email",
+        "emailPlaceholder": "official@clinic.com",
+        "licenseLabel": "License number",
+        "licensePlaceholder": "VET-12345678",
+        "passwordLabel": "Create password",
+        "passwordPlaceholder": "Create a password",
+        "confirmPasswordLabel": "Confirm password",
+        "confirmPasswordPlaceholder": "Confirm password",
+        "submit": "Create account",
+        "alreadyAccount": "Already have an account?"
+      }
     }
   },
   "ja": {
@@ -631,6 +722,97 @@
         }
       ],
       "copyright": "© 2026 PetMed AI, Inc. All rights reserved. Designed for veterinary professionals."
+    },
+    "assistant": {
+      "nav": {
+        "chatAssistant": "チャットアシスタント",
+        "medicalReferences": "医療リファレンス"
+      },
+      "actions": {
+        "newConsultation": "+ 新しい相談",
+        "openSidebar": "サイドバーを開く",
+        "closeSidebar": "サイドバーを閉じる",
+        "goHome": "ホームへ戻る",
+        "uploadFile": "ファイルをアップロード",
+        "startDictation": "音声入力を開始",
+        "stopDictation": "音声入力を停止",
+        "send": "送信",
+        "remove": "削除",
+        "settings": "設定",
+        "more": "その他",
+        "languageToggle": "言語切替",
+        "fileLabel": "ファイル:"
+      },
+      "history": {
+        "today": "今日",
+        "previous7Days": "過去7日間",
+        "earlier": "以前"
+      },
+      "plan": {
+        "title": "プロプラン",
+        "copy": "AI診断と専門家紹介が無制限。",
+        "upgrade": "アップグレード"
+      },
+      "header": {
+        "title": "AI獣医アシスタント",
+        "activeNow": "稼働中",
+        "composing": "作成中"
+      },
+      "empty": {
+        "title": "新しい相談を開始",
+        "copy": "症状、診断、治療についてPetMedアシスタントに質問できます。"
+      },
+      "input": {
+        "placeholder": "追加の質問や新しい症状を入力してください..."
+      },
+      "disclaimer": "PetMed AIは誤る可能性があります。必ず標準プロトコルで臨床判断を確認してください。",
+      "sharedAttachments": "添付ファイルを共有しました。",
+      "newConversationTitle": "新しい会話"
+    },
+    "auth": {
+      "common": {
+        "home": "ホーム",
+        "signup": "新規登録",
+        "login": "ログイン",
+        "languageToggle": "言語切替"
+      },
+      "login": {
+        "eyebrow": "セキュアアクセス",
+        "title": "ログイン",
+        "subtitle": "勤務先メールでワンタイムコードを受け取ってください。",
+        "emailLabel": "勤務先メール",
+        "emailPlaceholder": "dr.name@clinic.com",
+        "otpLabel": "ワンタイムコード",
+        "otpPlaceholder": "6桁コードを入力",
+        "back": "戻る",
+        "sendOtp": "OTPを送信",
+        "verify": "確認してログイン",
+        "didntGetCode": "コードが届きませんか？",
+        "resend": "OTPを再送",
+        "sentCode": "{email} にワンタイムコードを送信しました。",
+        "resent": "{email} に新しいコードを送信しました。",
+        "verified": "OTPを確認しました。リダイレクト中...",
+        "fallbackEmail": "あなたのメール"
+      },
+      "signup": {
+        "eyebrow": "PetMedは初めてですか？",
+        "title": "アカウントを作成",
+        "subtitle": "専門資格を確認してクリニックプロフィールを有効化します。",
+        "fullNameLabel": "氏名",
+        "fullNamePlaceholder": "山田 花子",
+        "clinicNameLabel": "病院名",
+        "clinicNamePlaceholder": "中央ペットクリニック",
+        "emailLabel": "勤務先メール",
+        "emailPlaceholder": "official@clinic.com",
+        "licenseLabel": "免許番号",
+        "licensePlaceholder": "VET-12345678",
+        "passwordLabel": "パスワード作成",
+        "passwordPlaceholder": "パスワードを作成",
+        "confirmPasswordLabel": "パスワード確認",
+        "confirmPasswordPlaceholder": "パスワードを再入力",
+        "submit": "アカウント作成",
+        "alreadyAccount": "すでにアカウントがありますか？"
+      }
     }
   }
 }
