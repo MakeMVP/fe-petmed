@@ -5,8 +5,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import translations from "@/content/translations.json";
 import type { Locale } from "@/types/home";
 
-const DEFAULT_LOCALE: Locale = "en";
-const STORAGE_KEY = "petmed_locale";
+const DEFAULT_LOCALE: Locale = "ja";
+const STORAGE_KEY = "petmed_locale_v2";
 const EVENT_NAME = "petmed-locale-change";
 
 const isLocale = (value: string | null): value is Locale => {

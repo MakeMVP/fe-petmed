@@ -2948,6 +2948,7 @@ button {
 @media (max-width: 1023px) {
   .assistant-app {
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
   .assistant-mobile-bar {
@@ -2969,7 +2970,12 @@ button {
   }
 
   .assistant-main {
-    padding-top: 70px;
+    padding: 70px 0 0;
+    border-radius: 0;
+  }
+
+  .assistant-top {
+    margin-top: 50px;
   }
 
   .assistant-sidebar {
@@ -2997,7 +3003,7 @@ button {
 
 @media (max-width: 767px) {
   .assistant-app {
-    width: 94vw;
+    width: 100%;
   }
 
   .assistant-main {
