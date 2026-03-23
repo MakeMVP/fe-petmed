@@ -140,7 +140,9 @@ export default function AssistantPage() {
   const [isListening, setIsListening] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [conversationType, setConversationType] = useState<"chat" | "medical_treatment">("chat");
   const { locale, setLocale, t } = useLocale();
+  const skipNextRefreshRef = useRef(false);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
   const inputSnapshotRef = useRef("");
   const speechFinalRef = useRef("");
@@ -156,7 +158,11 @@ export default function AssistantPage() {
   );
 
   const refreshConversations = useCallback(async () => {
-    const response = await apiFetch("/api/assistant/conversations?limit=40");
+    const params = new URLSearchParams({ limit: "40" });
+    if (conversationType === "medical_treatment") {
+      params.set("conversation_type", "medical_treatment");
+    }
+    const response = await apiFetch(`/api/assistant/conversations?${params.toString()}`);
     if (!response.ok) {
       return;
     }
@@ -165,9 +171,13 @@ export default function AssistantPage() {
     if (!activeConversationId && data.items.length > 0) {
       setActiveConversationId(data.items[0].conv_id);
     }
-  }, [activeConversationId]);
+  }, [activeConversationId, conversationType]);
 
   useEffect(() => {
+    if (skipNextRefreshRef.current) {
+      skipNextRefreshRef.current = false;
+      return;
+    }
     refreshConversations();
   }, [refreshConversations]);
 
@@ -207,8 +217,12 @@ export default function AssistantPage() {
     };
   }, []);
 
-  const handleNewConversation = async () => {
-    const response = await apiFetch("/api/assistant/conversations", {
+  const handleNewConversation = async (mode?: "medical_treatment") => {
+    const params = new URLSearchParams({ limit: "40" });
+    if (mode) {
+      params.set("conversation_type", mode);
+    }
+    const response = await apiFetch(`/api/assistant/conversations?${params.toString()}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title: t.assistant.newConversationTitle }),
@@ -220,6 +234,17 @@ export default function AssistantPage() {
     setConversations((prev) => [data, ...prev]);
     setActiveConversationId(data.conv_id);
     setMessages(EMPTY_MESSAGES);
+  };
+
+  const switchConversationType = (type: "chat" | "medical_treatment", createNew = false) => {
+    setConversationType(type);
+    setActiveConversationId(null);
+    setMessages(EMPTY_MESSAGES);
+    if (createNew) {
+      skipNextRefreshRef.current = true;
+      void handleNewConversation(type === "medical_treatment" ? "medical_treatment" : undefined);
+      return;
+    }
   };
 
   const uploadDocument = async (file: File) => {
@@ -461,17 +486,31 @@ export default function AssistantPage() {
         </div>
 
         <nav className="assistant-nav">
-          <button type="button" className="assistant-pill active">
+          <button
+            type="button"
+            className={`assistant-pill${conversationType === "chat" ? " active" : ""}`}
+            onClick={() => switchConversationType("chat")}
+          >
             <Image src="/chat-1.svg" alt="" width={16} height={16} aria-hidden="true" />
             <span>{t.assistant.nav.chatAssistant}</span>
           </button>
-          <button type="button" className="assistant-pill">
+          <button
+            type="button"
+            className={`assistant-pill${conversationType === "medical_treatment" ? " active" : ""}`}
+            onClick={() => switchConversationType("medical_treatment", true)}
+          >
             <Image src="/chat-2.svg" alt="" width={16} height={16} aria-hidden="true" />
             <span>{t.assistant.nav.medicalReferences}</span>
           </button>
         </nav>
 
-        <button type="button" className="assistant-new" onClick={handleNewConversation}>
+        <button
+          type="button"
+          className="assistant-new"
+          onClick={() =>
+            handleNewConversation(conversationType === "medical_treatment" ? "medical_treatment" : undefined)
+          }
+        >
           {t.assistant.actions.newConsultation}
         </button>
 
@@ -523,7 +562,7 @@ export default function AssistantPage() {
         <header className="assistant-top">
           <div className="assistant-title">
             <div className="assistant-title-icon">
-              <Image src="/ai.svg" alt="" width={20} height={20} aria-hidden="true" />
+              <Image src="/AI.svg" alt="" width={20} height={20} aria-hidden="true" />
             </div>
             <div>
               <p>{t.assistant.header.title}</p>

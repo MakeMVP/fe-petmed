@@ -8,6 +8,7 @@ import { useLocale } from "@/lib/i18n";
 import { validateDemoForm } from "@/lib/validation/demo-form";
 import { ClinicalAreasSection } from "@/components/home/ClinicalAreasSection";
 import { DemoRequestSection } from "@/components/home/DemoRequestSection";
+import { FAQSection } from "@/components/home/FAQSection";
 import { Header } from "@/components/home/Header";
 import { HeroSection } from "@/components/home/HeroSection";
 import { MeetPetMedSection } from "@/components/home/MeetPetMedSection";
@@ -90,6 +91,7 @@ export default function Home() {
         <ReviewsSection t={t} />
         <PrecisionSection t={t} />
         <PricingSection t={t} />
+        <FAQSection t={t} />
         <DemoRequestSection
           values={demoForm}
           errors={demoErrors}

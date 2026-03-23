@@ -163,6 +163,28 @@
         }
       ]
     },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to help you evaluate PetMed AI for your practice.",
+      "items": [
+        {
+          "question": "Is PetMed AI a replacement for clinical judgment?",
+          "answer": "No. PetMed AI supports your decision-making with evidence-backed insights, but final clinical judgment remains with the veterinarian."
+        },
+        {
+          "question": "What data can I upload?",
+          "answer": "You can upload lab results, imaging summaries, and clinical notes to provide more context for recommendations."
+        },
+        {
+          "question": "Does PetMed AI integrate with my EMR?",
+          "answer": "Yes, we offer EMR integrations for supported systems. Contact us to confirm compatibility."
+        },
+        {
+          "question": "How do you ensure data security?",
+          "answer": "We use encrypted storage, secure access controls, and follow industry best practices for handling clinical data."
+        }
+      ]
+    },
     "pricing": {
       "title": "Ready to elevate your practice?",
       "subtitle": "Join 2,000+ veterinary hospitals using PetMed to redefine animal care.",
@@ -568,6 +590,28 @@
         {
           "title": "確認して実行",
           "body": "重み付けされた選択肢を含むレポートを受け取り、最終判断を下せます。"
+        }
+      ]
+    },
+    "faq": {
+      "title": "よくある質問",
+      "subtitle": "PetMed AIの導入を検討する際のポイントを簡潔にまとめました。",
+      "items": [
+        {
+          "question": "PetMed AIは臨床判断の代わりになりますか？",
+          "answer": "いいえ。PetMed AIは根拠に基づく洞察で判断を支援しますが、最終判断は獣医師が行います。"
+        },
+        {
+          "question": "どのようなデータをアップロードできますか？",
+          "answer": "検査結果、画像所見の要約、診療メモなどをアップロードして、より精度の高い提案を得られます。"
+        },
+        {
+          "question": "EMRと連携できますか？",
+          "answer": "はい。対応するEMRとの連携が可能です。互換性についてはお問い合わせください。"
+        },
+        {
+          "question": "データの安全性はどう確保していますか？",
+          "answer": "暗号化ストレージと厳格なアクセス制御を採用し、臨床データの取り扱いに関する業界標準に準拠しています。"
         }
       ]
     },
