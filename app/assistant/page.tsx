@@ -145,6 +145,7 @@ export default function AssistantPage() {
   const [isSending, setIsSending] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [conversationType, setConversationType] = useState<"chat" | "medical_treatment">("chat");
+  const [moreOpen, setMoreOpen] = useState(false);
   const { locale, setLocale, t } = useLocale();
   const skipNextRefreshRef = useRef(false);
   const recognitionRef = useRef<SpeechRecognitionInstance | null>(null);
@@ -453,6 +454,14 @@ export default function AssistantPage() {
     recognitionRef.current.stop();
   };
 
+  const handleLogout = () => {
+    const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "3al3l0i924diqhrus97bijos2o";
+    const logoutUri = `${window.location.origin}/login`;
+    const cognitoDomain =
+      process.env.NEXT_PUBLIC_COGNITO_DOMAIN || "https://petmed.auth.ap-northeast-1.amazoncognito.com";
+    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+  };
+
   if (auth.isLoading) {
     return <div className="assistant-loading">{t.auth.login.loading}</div>;
   }
@@ -613,9 +622,22 @@ export default function AssistantPage() {
                 JA
               </button>
             </div>
-            <button type="button" aria-label={t.assistant.actions.more}>
-              ⋮
-            </button>
+            <div className="assistant-more">
+              <button
+                type="button"
+                aria-label={t.assistant.actions.more}
+                onClick={() => setMoreOpen((prev) => !prev)}
+              >
+                ⋮
+              </button>
+              {moreOpen ? (
+                <div className="assistant-more-menu" role="menu">
+                  <button type="button" onClick={handleLogout} role="menuitem">
+                    {t.auth.login.signOut}
+                  </button>
+                </div>
+              ) : null}
+            </div>
           </div>
         </header>
 
