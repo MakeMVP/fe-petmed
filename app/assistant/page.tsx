@@ -454,12 +454,15 @@ export default function AssistantPage() {
     recognitionRef.current.stop();
   };
 
-  const handleLogout = () => {
-    const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "3al3l0i924diqhrus97bijos2o";
-    const logoutUri = `${window.location.origin}/login`;
+  const handleLogout = async () => {
+    await auth.removeUser();
     const cognitoDomain =
-      process.env.NEXT_PUBLIC_COGNITO_DOMAIN || "https://petmed.auth.ap-northeast-1.amazoncognito.com";
-    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+      process.env.NEXT_PUBLIC_COGNITO_DOMAIN ||
+      "https://ap-northeast-1exxgd47ar.auth.ap-northeast-1.amazoncognito.com";
+    const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "3al3l0i924diqhrus97bijos2o";
+    const logoutUri = encodeURIComponent(window.location.origin);
+    const logoutUrl = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${logoutUri}`;
+    window.location.href = logoutUrl;
   };
 
   if (auth.isLoading) {
