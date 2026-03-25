@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useAuth } from "react-oidc-context";
 
 import { useLocale } from "@/lib/i18n";
 
 export default function SignupPage() {
   const { locale, setLocale, t } = useLocale();
+  const auth = useAuth();
 
   return (
     <div className="auth-page auth-signup">
@@ -49,43 +51,25 @@ export default function SignupPage() {
             <p>{t.auth.signup.subtitle}</p>
           </div>
 
-          <form className="auth-form auth-grid">
-            <label className="auth-field">
-              <span>{t.auth.signup.fullNameLabel}</span>
-              <input type="text" name="fullName" placeholder={t.auth.signup.fullNamePlaceholder} required />
-            </label>
-            <label className="auth-field">
-              <span>{t.auth.signup.clinicNameLabel}</span>
-              <input type="text" name="clinicName" placeholder={t.auth.signup.clinicNamePlaceholder} required />
-            </label>
-            <label className="auth-field auth-span">
-              <span>{t.auth.signup.emailLabel}</span>
-              <input type="email" name="email" placeholder={t.auth.signup.emailPlaceholder} required />
-            </label>
-            <label className="auth-field">
-              <span>{t.auth.signup.licenseLabel}</span>
-              <input type="text" name="license" placeholder={t.auth.signup.licensePlaceholder} required />
-            </label>
-            <label className="auth-field">
-              <span>{t.auth.signup.passwordLabel}</span>
-              <input type="password" name="password" placeholder={t.auth.signup.passwordPlaceholder} required />
-            </label>
-            <label className="auth-field">
-              <span>{t.auth.signup.confirmPasswordLabel}</span>
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder={t.auth.signup.confirmPasswordPlaceholder}
-                required
-              />
-            </label>
-            <button type="submit" className="btn btn-dark auth-primary auth-span">
-              {t.auth.signup.submit}
-            </button>
-            <p className="auth-meta auth-span">
+          <div className="auth-form">
+            <div className="auth-actions">
+              <button
+                type="button"
+                className="btn btn-dark auth-primary"
+                onClick={() => auth.signinRedirect({ extraQueryParams: { screen_hint: "signup" } })}
+                disabled={auth.isLoading}
+              >
+                {t.auth.signup.createWithCognito}
+              </button>
+            </div>
+
+            {auth.isLoading ? <p className="auth-message">{t.auth.signup.loading}</p> : null}
+            {auth.error ? <p className="auth-message">{t.auth.signup.error}</p> : null}
+
+            <p className="auth-meta">
               {t.auth.signup.alreadyAccount} <Link href="/login">{t.auth.common.login}</Link>
             </p>
-          </form>
+          </div>
         </section>
 
         <aside className="auth-visual auth-visual-signup" aria-hidden="true" />

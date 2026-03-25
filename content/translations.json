@@ -393,7 +393,7 @@
       "login": {
         "eyebrow": "Secure Access",
         "title": "Login",
-        "subtitle": "Use your professional email to receive a one-time passcode.",
+        "subtitle": "Sign in securely with your Cognito account.",
         "emailLabel": "Professional Email",
         "emailPlaceholder": "dr.name@clinic.com",
         "otpLabel": "One-time Passcode",
@@ -406,12 +406,16 @@
         "sentCode": "We sent a one-time code to {email}.",
         "resent": "New code sent to {email}.",
         "verified": "OTP verified. Redirecting...",
-        "fallbackEmail": "your email"
+        "fallbackEmail": "your email",
+        "signInCognito": "Sign in with Cognito",
+        "signOut": "Sign out",
+        "loading": "Loading...",
+        "error": "Encountering error..."
       },
       "signup": {
         "eyebrow": "New to PetMed?",
         "title": "Create your account",
-        "subtitle": "Verify your professional credentials to activate a clinic profile.",
+        "subtitle": "Create your account through Cognito to access PetMed.",
         "fullNameLabel": "Full name",
         "fullNamePlaceholder": "Dr. Jane Doe",
         "clinicNameLabel": "Clinic name",
@@ -425,7 +429,10 @@
         "confirmPasswordLabel": "Confirm password",
         "confirmPasswordPlaceholder": "Confirm password",
         "submit": "Create account",
-        "alreadyAccount": "Already have an account?"
+        "alreadyAccount": "Already have an account?",
+        "createWithCognito": "Create account with Cognito",
+        "loading": "Loading...",
+        "error": "Encountering error..."
       }
     }
   },
@@ -823,7 +830,7 @@
       "login": {
         "eyebrow": "セキュアアクセス",
         "title": "ログイン",
-        "subtitle": "勤務先メールでワンタイムコードを受け取ってください。",
+        "subtitle": "Cognitoアカウントで安全にログインします。",
         "emailLabel": "勤務先メール",
         "emailPlaceholder": "dr.name@clinic.com",
         "otpLabel": "ワンタイムコード",
@@ -836,12 +843,16 @@
         "sentCode": "{email} にワンタイムコードを送信しました。",
         "resent": "{email} に新しいコードを送信しました。",
         "verified": "OTPを確認しました。リダイレクト中...",
-        "fallbackEmail": "あなたのメール"
+        "fallbackEmail": "あなたのメール",
+        "signInCognito": "Cognitoでログイン",
+        "signOut": "ログアウト",
+        "loading": "読み込み中...",
+        "error": "エラーが発生しました。"
       },
       "signup": {
         "eyebrow": "PetMedは初めてですか？",
         "title": "アカウントを作成",
-        "subtitle": "専門資格を確認してクリニックプロフィールを有効化します。",
+        "subtitle": "Cognito経由でアカウントを作成してPetMedを利用できます。",
         "fullNameLabel": "氏名",
         "fullNamePlaceholder": "山田 花子",
         "clinicNameLabel": "病院名",
@@ -855,7 +866,10 @@
         "confirmPasswordLabel": "パスワード確認",
         "confirmPasswordPlaceholder": "パスワードを再入力",
         "submit": "アカウント作成",
-        "alreadyAccount": "すでにアカウントがありますか？"
+        "alreadyAccount": "すでにアカウントがありますか？",
+        "createWithCognito": "Cognitoで登録",
+        "loading": "読み込み中...",
+        "error": "エラーが発生しました。"
       }
     }
   }

@@ -3,40 +3,27 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { useEffect } from "react";
+import { useAuth } from "react-oidc-context";
 
 import { useLocale } from "@/lib/i18n";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [step, setStep] = useState<"email" | "otp">("email");
-  const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
-  const [message, setMessage] = useState("");
   const { locale, setLocale, t } = useLocale();
-  const formatMessage = (template: string, value: string) => template.replace("{email}", value);
+  const auth = useAuth();
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (step === "email") {
-      setStep("otp");
-      setMessage(formatMessage(t.auth.login.sentCode, email || t.auth.login.fallbackEmail));
-      return;
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      router.push("/assistant");
     }
+  }, [auth.isAuthenticated, router]);
 
-    setMessage(t.auth.login.verified);
-    router.push("/assistant");
-  };
-
-  const handleBack = () => {
-    setStep("email");
-    setOtp("");
-    setMessage("");
-  };
-
-  const handleResend = () => {
-    setMessage(formatMessage(t.auth.login.resent, email || t.auth.login.fallbackEmail));
+  const signOutRedirect = () => {
+    const clientId = "3al3l0i924diqhrus97bijos2o";
+    const logoutUri = "http://localhost:3000/login";
+    const cognitoDomain = "https://petmed.auth.ap-northeast-1.amazoncognito.com";
+    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
   return (
@@ -80,57 +67,29 @@ export default function LoginPage() {
             <p>{t.auth.login.subtitle}</p>
           </div>
 
-          <form className="auth-form" onSubmit={handleSubmit}>
-            {step === "email" ? (
-              <label className="auth-field">
-                <span>{t.auth.login.emailLabel}</span>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder={t.auth.login.emailPlaceholder}
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  required
-                />
-              </label>
-            ) : (
-              <label className="auth-field">
-                <span>{t.auth.login.otpLabel}</span>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  name="otp"
-                  placeholder={t.auth.login.otpPlaceholder}
-                  value={otp}
-                  onChange={(event) => setOtp(event.target.value)}
-                  required
-                />
-              </label>
-            )}
-
+          <div className="auth-form">
             <div className="auth-actions">
-              {step === "otp" && (
-                <button type="button" className="btn btn-light" onClick={handleBack}>
-                  {t.auth.login.back}
-                </button>
-              )}
-              <button type="submit" className="btn btn-dark auth-primary">
-                {step === "email" ? t.auth.login.sendOtp : t.auth.login.verify}
+              <button
+                type="button"
+                className="btn btn-dark auth-primary"
+                onClick={() => auth.signinRedirect()}
+                disabled={auth.isLoading}
+              >
+                {t.auth.login.signInCognito}
+              </button>
+              <button
+                type="button"
+                className="btn btn-light"
+                onClick={signOutRedirect}
+                disabled={auth.isLoading}
+              >
+                {t.auth.login.signOut}
               </button>
             </div>
 
-            {message ? <p className="auth-message">{message}</p> : null}
-
-            {step === "otp" ? (
-              <div className="auth-meta">
-                <span>{t.auth.login.didntGetCode}</span>
-                <button type="button" className="auth-link" onClick={handleResend}>
-                  {t.auth.login.resend}
-                </button>
-              </div>
-            ) : null}
-          </form>
+            {auth.isLoading ? <p className="auth-message">{t.auth.login.loading}</p> : null}
+            {auth.error ? <p className="auth-message">{t.auth.login.error}</p> : null}
+          </div>
         </section>
 
         <aside className="auth-visual auth-visual-login" aria-hidden="true" />

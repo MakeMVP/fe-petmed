@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "react-oidc-context";
 import { ChangeEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useLocale } from "@/lib/i18n";
@@ -132,6 +134,8 @@ async function apiFetch(path: string, options: RequestInit = {}) {
 }
 
 export default function AssistantPage() {
+  const router = useRouter();
+  const auth = useAuth();
   const [conversations, setConversations] = useState<ApiConversation[]>([]);
   const [activeConversationId, setActiveConversationId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>(EMPTY_MESSAGES);
@@ -174,12 +178,21 @@ export default function AssistantPage() {
   }, [activeConversationId, conversationType]);
 
   useEffect(() => {
+    if (!auth.isLoading && !auth.isAuthenticated) {
+      router.replace("/login");
+    }
+  }, [auth.isAuthenticated, auth.isLoading, router]);
+
+  useEffect(() => {
+    if (auth.isLoading || !auth.isAuthenticated) {
+      return;
+    }
     if (skipNextRefreshRef.current) {
       skipNextRefreshRef.current = false;
       return;
     }
     refreshConversations();
-  }, [refreshConversations]);
+  }, [auth.isAuthenticated, auth.isLoading, refreshConversations]);
 
   useEffect(() => {
     const fetchMessages = async () => {
@@ -439,6 +452,14 @@ export default function AssistantPage() {
     }
     recognitionRef.current.stop();
   };
+
+  if (auth.isLoading) {
+    return <div className="assistant-loading">{t.auth.login.loading}</div>;
+  }
+
+  if (!auth.isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="assistant-app">
