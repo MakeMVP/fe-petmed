@@ -20,9 +20,9 @@ export default function LoginPage() {
   }, [auth.isAuthenticated, router]);
 
   const signOutRedirect = () => {
-    const clientId = "3al3l0i924diqhrus97bijos2o";
-    const logoutUri = "http://localhost:3000/login";
-    const cognitoDomain = "https://petmed.auth.ap-northeast-1.amazoncognito.com";
+    const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "3al3l0i924diqhrus97bijos2o";
+    const logoutUri = `${window.location.origin}/login`;
+    const cognitoDomain = process.env.NEXT_PUBLIC_COGNITO_DOMAIN || "https://petmed.auth.ap-northeast-1.amazoncognito.com";
     window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
   };
 
